@@ -16,7 +16,7 @@ cls
 echo "__________________________________________________________________________________________________________________________ add / commit / push
 
 
-set commit_ment=%yyyyMMddHHmmss%
+::set commit_ment=%yyyyMMddHHmmss%
 ::set commit_ment=테스트 커밋.
 ::set commit_ment=테스트 푸쉬
 ::set commit_ment=프로젝트 이니셜 커밋.
@@ -39,18 +39,21 @@ set commit_ment=%yyyyMMddHHmmss%
 ::set commit_ment=깃허브 레포지토리명 변경후 첫 커밋 테스트
 ::set commit_ment=README.md 최신화
 ::set commit_ment=세계지도 화면, 근태관리 화면 추가, 지도 API 연동, README.md 참조
-::set commit_ment=신규 기능 추가, 추가코드샘플 테스트, README.md 참조
+set commit_ment=신규 기능 추가, 추가코드샘플 테스트, README.md 참조
 
 
 
 
 
 
-@REM _____________________________________________________________________________________________________________________________________ deploy s
 git add *  
 git commit -m "%commit_ment%" 
 git push -u origin main  
 git status | find "working tree clean" 
+
+
+
+
 set DIRECTORY_THAT_CONTAINING_GIT_FILE=%cd%
 CD ..
 set DIRECTORY_THAT_CONTAINING_GIT_USELESS_PART=%cd%
@@ -68,20 +71,8 @@ SET OPENING_DIRECTORY=%OPENING_DIRECTORY:*\=FOO%
 SET OPENING_DIRECTORY=%OPENING_DIRECTORY:*FOO=%
 ECHO %OPENING_DIRECTORY%
 explorer https://github.com/PARK4139/%OPENING_DIRECTORY%
-@REM _____________________________________________________________________________________________________________________________________ deploy e
-
-
-
-
-@REM _____________________________________________________________________________________________________________________________________ debug s
-explorer ""
-@REM _____________________________________________________________________________________________________________________________________ debug e
-
-
-
-
-
+del /f "git push by auto.py"
 @REM echo %~n0.log
-timeout 33
+@REM timeout 15
 @REM pause
 
